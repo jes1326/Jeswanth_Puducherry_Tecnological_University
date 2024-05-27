@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1519337265831-281ec6cc8514');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px 50px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #52aef5;
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 30px;
+        }
+
+        .form-control {
+            background-color: #f8f9fa;
+            border: 2px solid #ced4da;
+            border-radius: 5px;
+            box-shadow: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .alert {
+            border-radius: 5px;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #176329;
+            border-color: #c3e6cb;
+            text-align: center;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #7f1c26;
+            border-color: #f5c6cb;
+            text-align: center;
+        }
+
+        .decorative-text {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+            color: #000000;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Sentiment Analysis</h1>
+        <p>Analyze the sentiment of your comments quickly and accurately.</p>
+    </div>
+
+    <div class="container">
+        <h2>Analyze Your Comment</h2>
+
+        <form method="POST" action="/">
+            <div class="form-group">
+                <label for="comment">Enter your Text:</label>
+                <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Type your text here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Analyze</button>
+        </form>
+
+        {% if prediction %}
+            <div class="alert {% if prediction == 'Positive' %}alert-success{% else %}alert-danger{% endif %}" role="alert">
+                {% if prediction == 'Positive' %}
+                    Positive comment!
+                {% else %}
+                    Negative comment!
+                {% endif %}
+            </div>
+        {% endif %}
+
+        <div class="decorative-text">
+            <p>Sentiment analysis helps in understanding the emotional tone of comments. Try it out!</p>
+        </div>
+    </div>
+
+    <footer>
+        Powered by Team KANYARASI | Created with ❤️
+    </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

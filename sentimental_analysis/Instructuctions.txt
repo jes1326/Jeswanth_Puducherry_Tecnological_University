@@ -1,0 +1,7 @@
+import all the necessary libraries and modules
+run the "project.ipynb" file 
+(model and verctorizer will be saved as pickle file)
+open the app.py 
+run "app.py"
+The flask application will be deployed and the website to that will be displayed in terminal.
+copy the link and paste it in browser.
